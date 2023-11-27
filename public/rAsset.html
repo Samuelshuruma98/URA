@@ -12,34 +12,51 @@
     <h2 class="text-center"> ASSET REGISTRATION</h2>
     <div class="container">
         <div class="jumbotron">
-            <div class="row">
-                <div class="col-md-8">
-                    <!-- Feel free to delete the paragraph after implementation -->
-                    <p>Create an appropriate form to capture the asset's details as indicated in the description. Upon successfull registration, an asset code matching the criteria must be generated and communicated to the user in form of an alert.</p>
+            <form id="assetRegistrationForm" onsubmit="return registerAsset()">
+                <div class="form-group">
+                    <label for="assetName">Asset Name:</label>
+                    <input type="text" class="form-control" id="assetName" name="assetName" required>
                 </div>
-                <div class="col-md-4">
-                        <form class="form-inline pt-10">
-                          <input class="form-control mr-sm-2" type="search" placeholder="ENTER ASSET CODE" aria-label="Search"> <br><br>
-                          <button class="btn btn-success" type="submit">SEARCH ASSET</button>
-                        </form>
+
+                <div class="form-group">
+                    <label for="estimatedCost">Estimated Cost:</label>
+                    <input type="number" class="form-control" id="estimatedCost" name="estimatedCost" required>
                 </div>
-            </div>
+
+                <div class="form-group">
+                    <label for="ownerTIN">Owner's TIN:</label>
+                    <input type="text" class="form-control" id="ownerTIN" name="ownerTIN" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="assetType">Type:</label>
+                    <select class="form-control" id="assetType" name="assetType" required>
+                        <option value="fixed">Type</option>
+                        <option value="fixed">Fixed</option>
+                        <option value="movable">Movable</option>
+                    </select>
+                </div>
+
+                <!-- Hidden field for auto-generated asset number -->
+                <input type="hidden" name="assetNumber" id="assetNumber">
+
+                <button type="submit" class="btn btn-success">REGISTER ASSET</button>
+            </form>
         </div>
     </div>
 
     <div class="container">
         <div class="jumbotron">
             <h3 class="text-center">REGISTERED ASSETS</h3>
-            <div class="row">
-                <!-- Feel free to delete the paragraph after implementation -->
-                <p>Create a tabular view of the assets displaying the first 10 with navigation buttons to the next batch of 10 Assets.</p>
-                <p>Upon search of an asset from the search field above, the searched Asset should be the only one returned in the tabular view.</p>
-            </div>
+            <!-- Display registered assets in a tabular view -->
+            <!-- Include navigation buttons for pagination -->
         </div>
     </div>
 
     <div class="row text-center">
         <a class="btn btn-primary" href="index.html">BACK HOME</a>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
